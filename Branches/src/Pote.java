@@ -18,5 +18,18 @@ public class Pote {
 
 	}
 	
+	/*
+	 * Método para mover por la pantalla el pote
+	 * */
+	public void mover(){
+		
+	}
+	
+	/*
+	 * Metodo para inclinar el PImage segun la direccion del movimiento
+	 * */
+	public void inclinar(PApplet app){
+		
+	}
 	
 }

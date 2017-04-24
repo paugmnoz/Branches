@@ -4,7 +4,9 @@ public class Champinon implements Runnable {
 	
 	private float x,y;
 	public boolean empezar;
+	
 	public Champinon() {
+	
 	}
 	
 
