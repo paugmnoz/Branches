@@ -19,7 +19,7 @@ public class Champinon implements Runnable {
 	
 	/*
 	 * Método que nos pintara los champiñones 
-	 * en la clase Pote cuando son recogidos por el usuario
+	 * en la clase Burbuja cuando son recogidos por el usuario
 	 * 
 	 */
 	public void pintar(PApplet app, float nuevaX, float nuevoY) {
@@ -32,7 +32,6 @@ public class Champinon implements Runnable {
 	
 	public void run() {
 		
-		
 	}
 	
 	/*
@@ -42,6 +41,7 @@ public class Champinon implements Runnable {
 	public void caida(){
 		
 	}
+	
 	
 	
 
