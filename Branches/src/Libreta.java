@@ -8,7 +8,7 @@ public class Libreta {
 	/*
 	 * metodo para cargar las imagenes de las intrucciones
 	 */
-	private void cargarInstruccion() {
+	public void cargarInstruccion() {
 
 	}
 

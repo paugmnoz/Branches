@@ -13,7 +13,7 @@ public class Instruccion {
 	 * metodo para cargar las imagenes de la animcaion de cuando se cargan los
 	 * usuarios a la aplicación
 	 */
-	private void cargarUsuarios() {
+	public void cargarUsuarios() {
 		// TODO Auto-generated method stub
 
 	}

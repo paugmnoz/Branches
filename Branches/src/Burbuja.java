@@ -9,7 +9,7 @@ public class Burbuja {
 
 	private ArrayList<Champinon> nuevoChamp;
 
-	private void Brubuja() {
+	public Burbuja() {
 		nuevoChamp = new ArrayList<>();
 		cargarArbolChamp();
 
