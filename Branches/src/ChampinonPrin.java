@@ -1,18 +1,30 @@
 import processing.core.PApplet;
 
 public class ChampinonPrin {
-	
+
 	public ChampinonPrin() {
-		// TODO Auto-generated constructor stub
+		cargarInstruccion();
 	}
+
+	/*
+	 * metodo para cargar las imagenes de las intrucciones
+	 */
+	private void cargarInstruccion() {
+
+	}
+
 	/*
 	 * Método que nos pintara los champiñones
 	 */
 	public void pintar(PApplet app) {
 
 	}
-	
-	public void instruccion(){
-		
+
+	/*
+	 * metodo para reproducir las animaciones cuando el usuario toca el objeto
+	 * champinon
+	 */
+	public void animarInstruccion() {
+
 	}
 }

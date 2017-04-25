@@ -7,8 +7,18 @@ public class Calaverita implements Runnable {
 	private PImage[] cArray;
 	private float x, y;
 	private boolean viendo;
+	private boolean abrir;
 
 	public Calaverita() {
+		cargarPuerta();
+	}
+	
+	/*
+	 * Metodo que cargara con un for las imagenes para la animacion de cuando se
+	 * abre la puertapara cambiar de pantalla
+	 */
+	private void cargarPuerta() {
+	
 	}
 
 	/*
@@ -27,16 +37,20 @@ public class Calaverita implements Runnable {
 	}
 
 	/*
-	 * Método que tendra un for que correrá las imágenes del arreglo
-	 * y animará el personaje
-	 * */
+	 * Método que tendra un for que correrá las imágenes del arreglo y animará
+	 * el personaje
+	 */
 	public void animar() {
 
 	}
 
 	/*
-	 * gets
+	 * Metodo que contendrá la animación de cuando se abre la puerta
 	 * */
+	public void abrirPuerta() {
+
+	}
+
 	public float getX() {
 		return x;
 	}
