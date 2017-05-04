@@ -2,13 +2,21 @@ import processing.core.PApplet;
 
 public class Mundo implements Runnable {
 
-	private boolean moverC, abrirC;
+	private boolean moverC, abrirC, champinonPrin, libreta, lis;
+	private int pantalla;
 	
 	public Mundo(PApplet app) {
 		
 		cargarCajon();
 		cargarMoverCajon();
+		inicializarVariables();
+	}
 
+	public void inicializarVariables() {
+		champinonPrin = false;
+		libreta  = false;
+		lis =  false;
+		
 	}
 
 	/*
@@ -31,9 +39,58 @@ public class Mundo implements Runnable {
 	 * metodo para visualizar la aplicación
 	 */
 	public void pintar(PApplet app) {
+		pantallas();
 		
 	}
 
+	public void pantallas() {
+		switch (pantalla) {
+		
+		//--------Pantalla Mesa Flotanto----------//
+		case 0:
+			pintarCajonFlotante();
+			break;
+			
+			//
+		case 1:
+			pintarAbrirCajon();
+			pintarChampinonPrin();
+			pintarLibreta();
+			pintarLis();
+			
+			break;
+
+		default:
+			break;
+		}
+		
+	}
+
+	public void pintarCajonFlotante() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void pintarAbrirCajon() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void pintarLis() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void pintarLibreta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void pintarChampinonPrin() {
+		// TODO Auto-generated method stub
+	}
+	
+	
 	// -------------ANIMACIONES-------------//
 
 	/*
