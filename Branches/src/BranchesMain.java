@@ -29,7 +29,7 @@ public class BranchesMain extends PApplet {
 	
 	@Override
 	public void keyPressed() {
-		m.makey();
+		m.makey(this);
 	}
 	
 }
