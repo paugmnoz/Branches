@@ -12,7 +12,7 @@ public class Mundo implements Runnable {
 
 	private PApplet app;
 
-	private PImage[] cajonFlotante, abreCajon, acercaCajon;
+	private PImage[] cajonFlotante, abreCajon, acercaCajon, revUnoF;
 
 	public Mundo(PApplet app) {
 		this.app = app;
@@ -38,6 +38,16 @@ public class Mundo implements Runnable {
 		cargarCajonF();
 		cargarAbreCajon();
 		cargarAcercarCajon();
+		cargarFondo();
+	}
+
+	public void cargarFondo() {
+		revUnoF = new PImage[8];
+		System.out.println(app);
+		for (int i = 0; i < revUnoF.length; i++) {
+			revUnoF[i] = app.loadImage("../data/Revision1/rev1_" + i + ".png");
+
+		}
 	}
 
 	/*
@@ -45,7 +55,7 @@ public class Mundo implements Runnable {
 	 * la pantalla principal, de inicio
 	 */
 	public void cargarCajonF() {
-		cajonFlotante = new PImage[28];
+		cajonFlotante = new PImage[30];
 		System.out.println(app);
 		for (int i = 0; i < cajonFlotante.length; i++) {
 			cajonFlotante[i] = app.loadImage("../data/CajonFlotando/CajonFlotando_" + i + ".png");
@@ -101,7 +111,10 @@ public class Mundo implements Runnable {
 			}
 
 			break;
+		case 2:
+			pintarFondo();
 
+			break;
 		default:
 			break;
 		}
@@ -131,11 +144,22 @@ public class Mundo implements Runnable {
 		if (app.frameCount % 5 == 0 && numFrame != 16) {
 			if (numFrame <= 16) {
 				numFrame++;
-			} 
-		}else if (numFrame >= 16) {
+			}
+		} else if (numFrame >= 16) {
 			numFrame = 16;
 		}
-		System.out.println(numFrame);
+
+	}
+
+	public void pintarFondo() {
+
+		app.image(revUnoF[numFrame], app.width / 2, app.height / 2, revUnoF[numFrame].width/2,revUnoF[numFrame].height/2);
+		if (app.frameCount % 1 == 0) {
+			numFrame++;
+			if (numFrame >= 7) {
+				numFrame = 0;
+			}
+		}
 	}
 
 	/*
@@ -164,6 +188,12 @@ public class Mundo implements Runnable {
 	public void makey(PApplet app) {
 		if (pantalla == 0) {
 			iniciarApp(app);
+		}
+		if (pantalla == 1) {
+			if (app.keyCode == 32) {
+				pantalla = 2;
+				numFrame = 0;
+			}
 		}
 	}
 
