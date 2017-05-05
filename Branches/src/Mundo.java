@@ -16,8 +16,9 @@ public class Mundo implements Runnable {
 
 	public Mundo(PApplet app) {
 		this.app = app;
+		System.out.println(app);
 		inicializarVariables();
-	
+		cargarImagenes();
 	}
 
 	public void inicializarVariables() {
@@ -32,27 +33,28 @@ public class Mundo implements Runnable {
 		numFrame = 0;
 
 	}
+
 	public void cargarImagenes() {
 		cargarCajonF();
-		cargarAbreCajon();		
+		cargarAbreCajon();
 	}
-	
+
 	/*
 	 * Metodo que cargara con un for las imagenes para la animacion del arbol de
 	 * la pantalla principal, de inicio
 	 */
 	public void cargarCajonF() {
 		cajonFlotante = new PImage[28];
+		System.out.println(app);
 		for (int i = 0; i < cajonFlotante.length; i++) {
 			cajonFlotante[i] = app.loadImage("../data/CajonFlotando/CajonFlotando_" + i + ".png");
+		
 		}
 	}
-	
+
 	public void cargarAbreCajon() {
-	
+
 	}
-
-
 
 	/*
 	 * Metodo que cargara con un for las imagenes para la animacion del arbol de
@@ -105,7 +107,7 @@ public class Mundo implements Runnable {
 		app.image(cajonFlotante[numFrame], app.width / 2, app.height / 2);
 		if (app.frameCount % 5 == 0) {
 			numFrame++;
-			if (numFrame >= 29) {
+			if (numFrame >= 28) {
 				numFrame = 0;
 			}
 		}
@@ -151,7 +153,5 @@ public class Mundo implements Runnable {
 
 		}
 	}
-
-	
 
 }

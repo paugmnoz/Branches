@@ -19,8 +19,7 @@ public class BranchesMain extends PApplet {
 	
 	@Override
 	public void setup() {
-		m = new Mundo(app);
-		m.cargarImagenes();
+		m = new Mundo(this);
 		imageMode(CENTER);
 
 	}
