@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PConstants;
 import processing.core.PImage;
 
 public class Mundo implements Runnable {
@@ -9,14 +10,14 @@ public class Mundo implements Runnable {
 	private Lis liss;
 	private ChampinonPrin champPrin;
 
+	private PApplet app;
+
 	private PImage[] cajonFlotante, abreCajon;
 
 	public Mundo(PApplet app) {
-
-		cargarCajonF();
-		cargarMoverCajon();
-		cargarAbreCajon();
+		this.app = app;
 		inicializarVariables();
+	
 	}
 
 	public void inicializarVariables() {
@@ -28,25 +29,30 @@ public class Mundo implements Runnable {
 		lib = new Libreta();
 		champPrin = new ChampinonPrin();
 
+		numFrame = 0;
+
 	}
-
-	public void cargarAbreCajon() {
-		abreCajon = new PImage[25];
-		for (int i = 0; i < abreCajon.length; i++) {
-
-		}
+	public void cargarImagenes() {
+		cargarCajonF();
+		cargarAbreCajon();		
 	}
-
+	
 	/*
 	 * Metodo que cargara con un for las imagenes para la animacion del arbol de
 	 * la pantalla principal, de inicio
 	 */
 	public void cargarCajonF() {
-		cajonFlotante = new PImage[25];
+		cajonFlotante = new PImage[28];
 		for (int i = 0; i < cajonFlotante.length; i++) {
-
+			cajonFlotante[i] = app.loadImage("../data/CajonFlotando/CajonFlotando_" + i + ".png");
 		}
 	}
+	
+	public void cargarAbreCajon() {
+	
+	}
+
+
 
 	/*
 	 * Metodo que cargara con un for las imagenes para la animacion del arbol de
@@ -70,8 +76,7 @@ public class Mundo implements Runnable {
 
 		// --------Pantalla Mesa Flotanto----------//
 		case 0:
-			pintarCajonFlotante();
-
+			pintarCajonFlotante(app);
 			break;
 
 		//
@@ -96,8 +101,14 @@ public class Mundo implements Runnable {
 	/*
 	 * Metodo que pintara la animacion del cajon flotando
 	 */
-	public void pintarCajonFlotante() {
-
+	public void pintarCajonFlotante(PApplet app) {
+		app.image(cajonFlotante[numFrame], app.width / 2, app.height / 2);
+		if (app.frameCount % 5 == 0) {
+			numFrame++;
+			if (numFrame >= 29) {
+				numFrame = 0;
+			}
+		}
 	}
 
 	/*
@@ -122,7 +133,7 @@ public class Mundo implements Runnable {
 	}
 
 	// -----------------------MAKEY MAKEY----------------------//
-	
+
 	public void makey(PApplet app) {
 		if (pantalla == 0) {
 			iniciarApp(app);
@@ -136,8 +147,11 @@ public class Mundo implements Runnable {
 	public void iniciarApp(PApplet app) {
 		if (app.key == 'W') {
 			pantalla = 1;
+			numFrame = 0;
 
 		}
 	}
+
+	
 
 }

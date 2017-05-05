@@ -14,11 +14,15 @@ public class BranchesMain extends PApplet {
 	@Override
 	public void settings() {
 		fullScreen();
+		
 	}
 	
 	@Override
 	public void setup() {
 		m = new Mundo(app);
+		m.cargarImagenes();
+		imageMode(CENTER);
+
 	}
 	
 	@Override
