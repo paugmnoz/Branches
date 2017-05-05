@@ -5,14 +5,14 @@ import processing.core.PImage;
 public class Mundo implements Runnable {
 
 	private boolean moverC, abrirC, champinonPrin, libreta, lis;
-	private int pantalla, numFrame;
+	private int pantalla, numFrame, numFrameA;
 	private Libreta lib;
 	private Lis liss;
 	private ChampinonPrin champPrin;
 
 	private PApplet app;
 
-	private PImage[] cajonFlotante, abreCajon;
+	private PImage[] cajonFlotante, abreCajon, acercaCajon;
 
 	public Mundo(PApplet app) {
 		this.app = app;
@@ -37,6 +37,7 @@ public class Mundo implements Runnable {
 	public void cargarImagenes() {
 		cargarCajonF();
 		cargarAbreCajon();
+		cargarAcercarCajon();
 	}
 
 	/*
@@ -48,12 +49,20 @@ public class Mundo implements Runnable {
 		System.out.println(app);
 		for (int i = 0; i < cajonFlotante.length; i++) {
 			cajonFlotante[i] = app.loadImage("../data/CajonFlotando/CajonFlotando_" + i + ".png");
-		
+
 		}
 	}
 
 	public void cargarAbreCajon() {
 
+	}
+
+	public void cargarAcercarCajon() {
+		acercaCajon = new PImage[17];
+		System.out.println(app);
+		for (int i = 0; i < acercaCajon.length; i++) {
+			acercaCajon[i] = app.loadImage("../data/CajonAcercar/CajonAcercar_" + i + ".png");
+		}
 	}
 
 	/*
@@ -83,8 +92,9 @@ public class Mundo implements Runnable {
 
 		//
 		case 1:
+			pintarAcercarCajon();
 			pintarAbrirCajon();
-			if (numFrame == 20) {
+			if (numFrameA == 20) {
 				liss.pintar(app);
 				lib.pintar(app);
 				champPrin.pintar(app);
@@ -111,6 +121,21 @@ public class Mundo implements Runnable {
 				numFrame = 0;
 			}
 		}
+	}
+
+	/*
+	 * Metodo que pintara la animacion de cuando el usuario abre el cajon
+	 */
+	public void pintarAcercarCajon() {
+		app.image(acercaCajon[numFrame], app.width / 2, app.height / 2);
+		if (app.frameCount % 5 == 0 && numFrame != 16) {
+			if (numFrame <= 16) {
+				numFrame++;
+			} 
+		}else if (numFrame >= 16) {
+			numFrame = 16;
+		}
+		System.out.println(numFrame);
 	}
 
 	/*
@@ -147,10 +172,9 @@ public class Mundo implements Runnable {
 	 * empiece la interaccion
 	 */
 	public void iniciarApp(PApplet app) {
-		if (app.key == 'W') {
+		if (app.keyCode == 87) {
 			pantalla = 1;
 			numFrame = 0;
-
 		}
 	}
 

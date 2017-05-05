@@ -26,13 +26,13 @@ public class BranchesMain extends PApplet {
 	
 	@Override
 	public void draw() {
-		background(64, 60, 112);
+		background(52, 8, 70);
 		m.pintar(this);
 	}
-	
 	@Override
-	public void keyPressed() {
+	public void keyReleased() {
 		m.makey(this);
 	}
+
 	
 }
